@@ -1,11 +1,11 @@
 # `<objective>` header
 
-`<objective>` contains classes, which aim is to help to treat types alternatively.
+`<objective>` contains classes, which aim is to help to handle types alternatively.
 
 ## Classes
 | Class | Description |
 | :---: | :-- |
-| `objective<type>` | Wraps primitive types to be treated as classes. |
+| `objective<type>` | Wraps primitive types to be handled as classes. |
 
 ## Casting Operators
 | Operator | Description |
