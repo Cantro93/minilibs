@@ -11,4 +11,4 @@
 | Operator | Description |
 | :---: | :-- |
 | `objective_cast<target>` | Converts from `objective<source>` to `objective<target>`, where `source` type is detected implicitly. |
-| `primitive_cast<target>` | Converts `objective<source>` object to primtive type `target`. `source` is detected implicitly. |
+| `primitive_cast<target>` | Converts `objective<source>` object to primitive type `target`. `source` is detected implicitly. |
