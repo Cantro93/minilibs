@@ -1,21 +1,14 @@
-# `<fraction>` header
+# `<objective>` header
 
-> WARNING: This header requires C++20 or later.
-
-`<fraction>` contains a class representing rational numbers.
+`<objective>` contains classes, which aim is to help to treat types alternatively.
 
 ## Classes
 | Class | Description |
 | :---: | :-- |
-| `fraction<type>` | Defines a rational number. |
+| `objective<type>` | Wraps primitive types to be treated as classes. |
 
 ## Casting Operators
 | Operator | Description |
 | :---: | :-- |
-| `rational_cast<target>` | Converts from `fraction<source>` to `fraction<target>`, where `source` type is detected implicitly. |
-
-## Concepts
-| Concept | Description |
-| :---: | :-- |
-| `number` | Checks if it is possible to perform 4 basic operations (+, -, *, /) on the type. |
-| `integer` | Checks if the type is `number` and satisfies `std::is_integral<T>`. |
+| `objective_cast<target>` | Converts from `objective<source>` to `objective<target>`, where `source` type is detected implicitly. |
+| `primitive_cast<target>` | Converts `objective<source>` object to primtive type `target`. `source` is detected implicitly. |
