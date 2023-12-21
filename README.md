@@ -2,7 +2,7 @@
 
 > WARNING: This header requires C++20 or later.
 
-`<hook>` contains a class `hook<type>` - an interface for event making.
+`<hook>` contains a class `hook<type>` - an interface for event handling.
 
 ## Classes
 | Class | Description |
