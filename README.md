@@ -1,6 +1,6 @@
 # `<objective>` header
 
-`<objective>` contains classes, which aim is to help to handle types alternatively.
+`<objective>` contains a class, which aim is to help to handle types as classes.
 
 ## Classes
 | Class | Description |
