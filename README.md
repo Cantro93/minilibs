@@ -1,15 +1,12 @@
-# `<hook>` header
+# minilibs
+MiniLibs - collection of C++ headers
 
-> WARNING: This header requires C++20 or later.
+## Existing headers
+* [`<objective>`](https://github.com/Cantro93/minilibs/tree/objective) - alternative ways of types handling;
+* [`<hook>`](https://github.com/Cantro93/minilibs/tree/hook) - event handling for C++;
 
-`<hook>` contains a class `hook<type>` - an interface for event handling.
+> NOTE: click the header's name to go to the branch representing it.
 
-## Classes
-| Class | Description |
-| :---: | :-- |
-| `hook<type>` | Allows using a function of type `type` as an event handler. |
-
-## Concepts
-| Concept | Description |
-| :---: | :-- |
-| `callable` | Wrapper for `std::is_function<T>`. |
+## Licensing
+Project is licensed under GNU General Public License (Version 3).
+The license file is located here:<br>https://github.com/Cantro93/minilibs/blob/main/LICENSE
