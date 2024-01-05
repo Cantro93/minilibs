@@ -2,8 +2,9 @@
 MiniLibs - collection of C++ headers
 
 ## Existing headers
-* [`<objective>`](https://github.com/Cantro93/minilibs/tree/objective) - alternative ways of types handling;
-* [`<hook>`](https://github.com/Cantro93/minilibs/tree/hook) - event handling for C++;
+* [`<objective>`](headers/objective.h) - alternative ways of types handling;
+* [`<hook>`](headers/hook.h) - event handling for C++;
+* [`<fraction>`](headers/fraction.h) - rational numbers;
 
 > NOTE: click the header's name to go to the branch representing it.
 
