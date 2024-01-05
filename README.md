@@ -10,4 +10,4 @@ MiniLibs - collection of C++ headers
 
 ## Licensing
 Project is licensed under GNU General Public License (Version 3).
-The license file is located here:<br>https://github.com/Cantro93/minilibs/blob/main/LICENSE
+The license file is located here:<br>[LICENSE](LICENSE)
