@@ -1,12 +1,21 @@
-# minilibs
-MiniLibs - collection of C++ headers
+# `<fraction>` header
 
-## Existing headers
-* [`<objective>`](https://github.com/Cantro93/minilibs/tree/objective) - alternative ways of types handling;
-* [`<hook>`](https://github.com/Cantro93/minilibs/tree/hook) - event handling for C++;
+> WARNING: This header requires C++20 or later.
 
-> NOTE: click the header's name to go to the branch representing it.
+`<fraction>` contains a class representing rational numbers.
 
-## Licensing
-Project is licensed under GNU General Public License (Version 3).
-The license file is located here:<br>https://github.com/Cantro93/minilibs/blob/main/LICENSE
+## Classes
+| Class | Description |
+| :---: | :-- |
+| `fraction<type>` | Defines a rational number. |
+
+## Casting Operators
+| Operator | Description |
+| :---: | :-- |
+| `rational_cast<target>` | Converts from `fraction<source>` to `fraction<target>`, where `source` type is detected implicitly. |
+
+## Concepts
+| Concept | Description |
+| :---: | :-- |
+| `number` | Checks if it is possible to perform 4 basic operations (+, -, *, /) on the type. |
+| `integer` | Checks if the type is `number` and satisfies `std::is_integral<T>`. |
