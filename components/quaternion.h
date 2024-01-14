@@ -55,8 +55,7 @@ public:
 
     //operations
     quaternion<type> operator*();
-    quaternion<type> reciprocal();
-    // quaternion<type> versor();
+    quaternion<long double> reciprocal();
 
     quaternion<type> operator+(quaternion<type> b);
     quaternion<type> operator-(quaternion<type> b);

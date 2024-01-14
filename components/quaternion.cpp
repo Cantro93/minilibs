@@ -1,6 +1,7 @@
 #include "quaternion.h"
 #ifndef _QUATERNION_IMPL
 #define _QUATERNION_IMPL
+
 template <quaternion_internal::number type>
 quaternion<type>::quaternion(type re, type im, type jm, type km)
 {
@@ -37,14 +38,14 @@ quaternion<type> quaternion<type>::operator*()
 }
 
 template <quaternion_internal::number type>
-quaternion<type> quaternion<type>::reciprocal()
+quaternion<long double> quaternion<type>::reciprocal()
 {
     long double m = ((long double)1/((*(*this)) * (*this))[e]);
-    return quaternion<type>(
-        (type)(m * num[e]),
-        (type)(m * -num[i]),
-        (type)(m * -num[j]),
-        (type)(m * -num[k])
+    return quaternion<long double>(
+        (m * num[e]),
+        (m * -num[i]),
+        (m * -num[j]),
+        (m * -num[k])
     );
 }
 
@@ -81,10 +82,14 @@ quaternion<type> quaternion<type>::operator*(quaternion<type> b)
     );
 }
 
+template<quaternion_internal::number target, quaternion_internal::number source>
+quaternion<target> quaternion_cast(quaternion<source> src);
+
+
 template <quaternion_internal::number type>
 quaternion<type> quaternion<type>::operator/(quaternion<type> b)
 {
-    return (b.reciprocal() * (*this));
+    return quaternion_cast<type>(b.reciprocal() * quaternion_cast<long double>(*this));
 }
 
 template <quaternion_internal::number type>
@@ -97,8 +102,8 @@ ostream& operator<<(ostream& os, quaternion<type> a)
         {
             if (previous) os << ' ' << ((a(l) > 0) ? '+' : '-') << ' ';
             else if (a(l) < 0) cout << '-';
+            if ((l > 0) ? (abs(a(l)) != 1) : true) os << abs(a(l));
             previous = true;
-            os << abs(a(l));
             switch ((quaternion_part)l)
             {
             case i:
@@ -115,6 +120,7 @@ ostream& operator<<(ostream& os, quaternion<type> a)
             }
         }
     }
+    if (!previous) os << 0;
     return os;
 }
 
