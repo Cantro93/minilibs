@@ -2,6 +2,10 @@
 
 `<fraction>` contains a class representing rational numbers.
 
+## Requirements
+
+* `minilibs::<type>`
+
 ## Classes
 | Class | Description |
 | :---: | :-- |
