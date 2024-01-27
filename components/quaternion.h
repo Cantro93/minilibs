@@ -1,4 +1,4 @@
-// MiniLibs <quaternion> header
+// MiniLibs <quaternion> component interface
 // Copyright (C) 2023  Cantro93
 // MiniLibs Project is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,53 +14,42 @@
 #include <iostream>
 #include <compare>
 #include <utility>
-#include <type_traits>
+
+#include "type"
 
 #ifndef _QUATERNION_
 #define _QUATERNION_
-using namespace std;
+namespace minilibs
+{
+    using namespace std;
 
-namespace quaternion_internal {template<typename type>
-concept number = requires(type a, type b) {
-	a + b;
-	a - b;
-	a * b;
-	a / b;
-};
+    typedef enum {
+        e = 0, i = 1, j = 2, k = 3
+    } quaternion_part;
 
-template<typename type>
-concept integer = (is_integral<type>::value) && requires(type a, type b) {
-	a + b;
-	a - b;
-	a * b;
-	a / b;
-};}
+    template<quaternion_internal::number type = int>
+    class quaternion {
+    private:
+        type num[4];
+    public:
+        //construction
+        quaternion(type re = 0, type im = 0, type jm = 0, type km = 0);
+        //access
+        type& operator[](quaternion_part id);
+        type operator()(signed char id);
+        type norm();
 
-typedef enum {
-    e = 0, i = 1, j = 2, k = 3
-} quaternion_part;
 
-template<quaternion_internal::number type = int>
-class quaternion {
-private:
-    type num[4];
-public:
-    //construction
-    quaternion(type re = 0, type im = 0, type jm = 0, type km = 0);
-    //access
-    type& operator[](quaternion_part id);
-    type operator()(signed char id);
-    type norm();
-    
+        //operations
+        quaternion<type> operator*();
+        quaternion<long double> reciprocal();
 
-    //operations
-    quaternion<type> operator*();
-    quaternion<long double> reciprocal();
+        quaternion<type> operator+(quaternion<type> b);
+        quaternion<type> operator-(quaternion<type> b);
+        quaternion<type> operator*(quaternion<type> b);
+        quaternion<type> operator/(quaternion<type> b);
 
-    quaternion<type> operator+(quaternion<type> b);
-    quaternion<type> operator-(quaternion<type> b);
-    quaternion<type> operator*(quaternion<type> b);
-    quaternion<type> operator/(quaternion<type> b);
-    
-};
+    };
+} // namespace minilibs
+
 #endif //!_QUATERNION_

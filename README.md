@@ -2,6 +2,10 @@
 
 `<quaternion>` contains a class representing quaternions.
 
+## Requirements
+
+* `minilibs::<type>`
+
 ## Classes
 | Class | Description |
 | :---: | :-- |
