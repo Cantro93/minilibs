@@ -16,45 +16,35 @@
 #include <utility>
 #include <type_traits>
 
+#include "type.h"
+
 using namespace std;
 #ifndef _FRACTION_
 #define _FRACTION_
-template<typename type>
-concept number = requires(type a, type b) {
-	a + b;
-	a - b;
-	a * b;
-	a / b;
-};
 
-template<typename type>
-concept integer = (is_integral<type>::value) && requires(type a, type b) {
-	a + b;
-	a - b;
-	a * b;
-	a / b;
-};
+namespace minlibs 
+{
+	template<number type = int>
+	class fraction {
+	public:
 
-template<number type = int>
-class fraction {
-public:
+		type numerator;
+		type denominator;
 
-	type numerator;
-	type denominator;
+		fraction(type n = 0, type d = 1) : numerator{n}, denominator{d} {};
+		fraction(type n) : numerator{n}, denominator{1} {};
 
-	fraction(type n = 0, type d = 1) : numerator{n}, denominator{d} {};
-	fraction(type n) : numerator{n}, denominator{1} {};
+		fraction<type> operator-();
 
-	fraction<type> operator-();
+		fraction<type> operator+(fraction<type> b);
+		fraction<type> operator-(fraction<type> b);
+		fraction<type> operator*(fraction<type> b);
+		fraction<type> operator/(fraction<type> b);
 
-	fraction<type> operator+(fraction<type> b);
-	fraction<type> operator-(fraction<type> b);
-	fraction<type> operator*(fraction<type> b);
-	fraction<type> operator/(fraction<type> b);
-
-	strong_ordering operator<=>(fraction<type> b);
-	operator float();
-	operator double();
-	operator long double();
-};
+		strong_ordering operator<=>(fraction<type> b);
+		operator float();
+		operator double();
+		operator long double();
+	};
+} //namespace minilibs
 #endif //!_FRACTION_
