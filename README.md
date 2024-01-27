@@ -1,17 +1,17 @@
-# minilibs
-MiniLibs - collection of C++ headers
+# `<fraction>` header
 
-## Existing headers
-* [`<objective>`](https://github.com/Cantro93/minilibs/tree/objective) - alternative ways of types handling;
-* [`<hook>`](https://github.com/Cantro93/minilibs/tree/hook) - event handling for C++;
-* [`<fraction>`](https://github.com/Cantro93/minilibs/tree/fraction) - rational numbers;
-* [`<quaternion>`](https://github.com/Cantro93/minilibs/tree/quaternion) - quaternions;
+`<fraction>` contains a class representing rational numbers.
 
-> NOTE: click the header's name to go to the branch representing it.
+## Requirements
 
-## Licensing
-Project is licensed under GNU General Public License (Version 3).
-The license file is located here:<br>[LICENSE](LICENSE)
+* `minilibs::<type>`
 
-## Usage:
-See [samples](https://github.com/Cantro93/minilibs/tree/samples).
+## Classes
+| Class | Description |
+| :---: | :-- |
+| `fraction<type>` | Defines a rational number. |
+
+## Casting Operators
+| Operator | Description |
+| :---: | :-- |
+| `rational_cast<target>` | Converts from `fraction<source>` to `fraction<target>`, where `source` type is detected implicitly. |
