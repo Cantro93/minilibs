@@ -14,30 +14,31 @@
 #ifndef _HOOK_
 #define _HOOK_
 #include <functional>
-#include <type_traits>
-#include <concepts>
-using namespace std;
 
-template<typename T> concept callable = is_function<T>::value;
+#include "type"
 
-template<callable type> class hook {
-public:
-    using result_t = function<type>::result_type;
-    hook() = default;
-    hook(function<type> f) {fc = f;};
-    //invocation operator: make sure that it will receive correct arguments
-    template<typename... Args> requires (is_same<function<result_t(Args...)>, function<type>>::value)
-        result_t operator()(Args ...arguments) 
-        {return fc(arguments...);}
+namespace minilibs
+{
+    using namespace std;
+    template<callable type> class hook {
+    public:
+        using result_t = function<type>::result_type;
+        hook() = default;
+        hook(function<type> f) {fc = f;};
+        //invocation operator: make sure that it will receive correct arguments
+        template<typename... Args> requires (is_same<function<result_t(Args...)>, function<type>>::value)
+            result_t operator()(Args ...arguments) 
+            {return fc(arguments...);}
 
-    template<typename... Args> requires (is_same<function<result_t(Args...)>, function<type>>::value)
-        result_t dispatch(Args ...arguments) 
-        {return fc(arguments...);}
+        template<typename... Args> requires (is_same<function<result_t(Args...)>, function<type>>::value)
+            result_t dispatch(Args ...arguments) 
+            {return fc(arguments...);}
 
-    void assign(function<type> f);
+        void assign(function<type> f);
 
-    void operator=(function<type> f);
-private:
-    function<type> fc{nullptr};
-};
+        void operator=(function<type> f);
+    private:
+        function<type> fc{nullptr};
+    };
+} //namespace minilibs
 #endif //!_HOOK_

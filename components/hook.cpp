@@ -14,15 +14,19 @@
 #ifndef _HOOK_IMPL
 #define _HOOK_IMPL
 #include "hook.h"
-template <callable type>
-void hook<type>::assign(function<type> f)
+namespace minilibs
 {
-    fc = f;
-}
+    template <callable type>
+    void hook<type>::assign(function<type> f)
+    {
+        fc = f;
+    }
+    
+    template <callable type>
+    void hook<type>::operator=(function<type> f)
+    {
+        fc = f;
+    }
+} // namespace minilibs
 
-template <callable type>
-void hook<type>::operator=(function<type> f)
-{
-    fc = f;
-}
 #endif //!_HOOK_IMPL
