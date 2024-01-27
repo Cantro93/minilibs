@@ -2,6 +2,8 @@
 
 `<objective>` contains a class, which aim is to help to handle types as classes.
 
+> BACKWARD COMPATIBILITY: this library is compatible with C++14 and later.
+
 ## Classes
 | Class | Description |
 | :---: | :-- |

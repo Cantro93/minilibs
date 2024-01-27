@@ -14,635 +14,639 @@
 #pragma once
 #ifndef _OBJECTIVE_
 #define _OBJECTIVE_
-template <typename type>
-class objective
-{
-public:
-    //construction
-
-    objective(type a);
-    objective<type>& operator=(type a);
-    operator type();
-
-    //monooperations
-
-    objective<type>& operator++();
-    objective<type>& operator--();
-    objective<type>& operator+();
-    objective<type>& operator-();
-    objective<type>& operator!();
-
-    //operations
-
-    type operator+(type b);
-    type operator+(objective<type> b);
-
-    type operator-(type b);
-    type operator-(objective<type> b);
-
-    type operator*(type b);
-    type operator*(objective<type> b);
-
-    type operator/(type b);
-    type operator/(objective<type> b);
-
-    type operator%(type b);
-    type operator%(objective<type> b);
-
-    type operator^(type b);
-    type operator^(objective<type> b);
-
-    type operator|(type b);
-    type operator|(objective<type> b);
-
-    type operator&(type b);
-    type operator&(objective<type> b);
-    
-    type operator<<(type b);
-    type operator<<(objective<type> b);
-
-    type operator>>(type b);
-    type operator>>(objective<type> b);
-    
-    //assignment operations
-
-    objective<type>& operator+=(type b);
-    objective<type>& operator+=(objective<type> b);
-
-    objective<type>& operator-=(type b);
-    objective<type>& operator-=(objective<type> b);
-
-    objective<type>& operator*=(type b);
-    objective<type>& operator*=(objective<type> b);
-
-    objective<type>& operator/=(type b);
-    objective<type>& operator/=(objective<type> b);
-
-    objective<type>& operator%=(type b);
-    objective<type>& operator%=(objective<type> b);
-
-    objective<type>& operator^=(type b);
-    objective<type>& operator^=(objective<type> b);
-
-    objective<type>& operator|=(type b);
-    objective<type>& operator|=(objective<type> b);
-
-    objective<type>& operator&=(type b);
-    objective<type>& operator&=(objective<type> b);
-    
-    objective<type>& operator<<=(type b);
-    objective<type>& operator<<=(objective<type> b);
-
-    objective<type>& operator>>=(type b);
-    objective<type>& operator>>=(objective<type> b);    
-    
-    //comparison
-    
-    bool operator<(type b);
-    bool operator<(objective<type> b);
-    
-    bool operator>(type b);
-    bool operator>(objective<type> b);
-    
-    bool operator==(type b);
-    bool operator==(objective<type> b);
-    
-    bool operator<=(type b);
-    bool operator<=(objective<type> b);
-    
-    bool operator>=(type b);
-    bool operator>=(objective<type> b);
-    
-    bool operator!=(type b);
-    bool operator!=(objective<type> b);
-protected:
-    type data = {};
-};
-
-template<>
-class objective<bool>
-{
-public:
-    //construction
-
-    objective(bool a);
-    objective<bool>& operator=(bool a);
-    operator bool();
-
-    //monooperations
-
-    objective<bool>& operator!();
-
-    //operations
-
-    bool operator^(bool b);
-    bool operator^(objective<bool> b);
-
-    bool operator|(bool b);
-    bool operator|(objective<bool> b);
-
-    bool operator&(bool b);
-    bool operator&(objective<bool> b);
-    
-    bool operator||(bool b);
-    bool operator||(objective<bool> b);
-
-    bool operator&&(bool b);
-    bool operator&&(objective<bool> b);
-    
-    //comparison
-    
-    bool operator==(bool b);
-    bool operator==(objective<bool> b);
-    
-    bool operator!=(bool b);
-    bool operator!=(objective<bool> b);
-protected:
-    bool data = false;
-};
-
-objective<bool>::objective(bool a) : data(a)
-{
-}
 
-objective<bool> &objective<bool>::operator=(bool a)
+namespace minilibs
 {
-    data = a;
-    return *this;
-}
-
-objective<bool>::operator bool()
-{
-    return data;
-}
+    template <typename type>
+    class objective
+    {
+    public:
+        //construction
 
-bool objective<bool>::operator^(bool b)
-{
-    return (data ? (!b) : b);
-}
+        objective(type a);
+        objective<type>& operator=(type a);
+        operator type();
 
-bool objective<bool>::operator^(objective<bool> b)
-{
-    return (data ? (!b.data) : b.data);
-}
+        //monooperations
 
-bool objective<bool>::operator|(bool b)
-{
-    return (data || b);
-}
+        objective<type>& operator++();
+        objective<type>& operator--();
+        objective<type>& operator+();
+        objective<type>& operator-();
+        objective<type>& operator!();
 
-bool objective<bool>::operator|(objective<bool> b)
-{
-    return (data || b.data);
-}
+        //operations
 
-bool objective<bool>::operator&(bool b)
-{
-    return (data && b);
-}
+        type operator+(type b);
+        type operator+(objective<type> b);
 
-bool objective<bool>::operator&(objective<bool> b)
-{
-    return (data && b.data);
-}
+        type operator-(type b);
+        type operator-(objective<type> b);
 
-bool objective<bool>::operator||(bool b)
-{
-    return (data || b);
-}
+        type operator*(type b);
+        type operator*(objective<type> b);
 
-bool objective<bool>::operator||(objective<bool> b)
-{
-    return (data || b.data);
-}
+        type operator/(type b);
+        type operator/(objective<type> b);
 
-bool objective<bool>::operator&&(bool b)
-{
-    return (data && b);
-}
+        type operator%(type b);
+        type operator%(objective<type> b);
 
-bool objective<bool>::operator&&(objective<bool> b)
-{
-    return (data && b.data);
-}
+        type operator^(type b);
+        type operator^(objective<type> b);
 
-bool objective<bool>::operator==(bool b)
-{
-    return (data == b);
-}
+        type operator|(type b);
+        type operator|(objective<type> b);
 
-bool objective<bool>::operator==(objective<bool> b)
-{
-    return (data == b.data);
-}
+        type operator&(type b);
+        type operator&(objective<type> b);
 
-bool objective<bool>::operator!=(bool b)
-{
-    return (data != b);
-}
+        type operator<<(type b);
+        type operator<<(objective<type> b);
 
-bool objective<bool>::operator!=(objective<bool> b)
-{
-    return (data != b.data);
-}
+        type operator>>(type b);
+        type operator>>(objective<type> b);
 
+        //assignment operations
 
+        objective<type>& operator+=(type b);
+        objective<type>& operator+=(objective<type> b);
 
+        objective<type>& operator-=(type b);
+        objective<type>& operator-=(objective<type> b);
 
-template<typename type>
-objective<type>::objective(type a) : data(a)
-{
-}
+        objective<type>& operator*=(type b);
+        objective<type>& operator*=(objective<type> b);
 
-template <typename type>
-objective<type> &objective<type>::operator=(type a)
-{
-    data = a;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator++()
-{
-    data++;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator--()
-{
-    data--;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator+()
-{
-    data = +data;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator-()
-{
-    data = -data;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator!()
-{
-    data = !data;
-    return *this;
-}
-
-template <typename type>
-type objective<type>::operator+(type b)
-{
-    return data + b;
-}
-
-template <typename type>
-type objective<type>::operator+(objective<type> b)
-{
-    return data + b.data;
-}
-
-template <typename type>
-type objective<type>::operator-(type b)
-{
-    return data - b;
-}
-
-template <typename type>
-type objective<type>::operator-(objective<type> b)
-{
-    return data - b.data;
-}
-
-template <typename type>
-type objective<type>::operator*(type b)
-{
-    return data * b;
-}
-
-template <typename type>
-type objective<type>::operator*(objective<type> b)
-{
-    return data * b.data;
-}
-
-template <typename type>
-type objective<type>::operator/(type b)
-{
-    return data / b;
-}
-
-template <typename type>
-type objective<type>::operator/(objective<type> b)
-{
-    return data / b.data;
-}
-
-template <typename type>
-type objective<type>::operator%(type b)
-{
-    return data % b;
-}
-
-template <typename type>
-type objective<type>::operator%(objective<type> b)
-{
-    return data % b.data;
-}
-
-template <typename type>
-type objective<type>::operator^(type b)
-{
-    return data ^ b;
-}
-
-template <typename type>
-type objective<type>::operator^(objective<type> b)
-{
-    return data ^ b.data;
-}
-
-template <typename type>
-type objective<type>::operator|(type b)
-{
-    return data | b;
-}
-
-template <typename type>
-type objective<type>::operator|(objective<type> b)
-{
-    return data | b.data;
-}
-
-template <typename type>
-type objective<type>::operator&(type b)
-{
-    return data & b;
-}
-
-template <typename type>
-type objective<type>::operator&(objective<type> b)
-{
-    return data & b.data;
-}
-
-template <typename type>
-type objective<type>::operator<<(type b)
-{
-    return data << b;
-}
-
-template <typename type>
-type objective<type>::operator<<(objective<type> b)
-{
-    return data << b.data;
-}
-
-template <typename type>
-type objective<type>::operator>>(type b)
-{
-    return data >> b;
-}
-
-template <typename type>
-type objective<type>::operator>>(objective<type> b)
-{
-    return data >> b.data;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator+=(type b)
-{
-    data += b;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator+=(objective<type> b)
-{
-    data += b.data;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator-=(type b)
-{
-    data -= b;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator-=(objective<type> b)
-{
-    data -= b.data;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator*=(type b)
-{
-    data *= b;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator*=(objective<type> b)
-{
-    data *= b.data;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator/=(type b)
-{
-    data /= b;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator/=(objective<type> b)
-{
-    data /= b.data;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator%=(type b)
-{
-    data %= b;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator%=(objective<type> b)
-{
-    data %= b.data;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator^=(type b)
-{
-    data ^= b;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator^=(objective<type> b)
-{
-    data ^= b.data;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator|=(type b)
-{
-    data |= b;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator|=(objective<type> b)
-{
-    data |= b.data;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator&=(type b)
-{
-    data &= b;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator&=(objective<type> b)
-{
-    data &= b.data;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator<<=(type b)
-{
-    data <<= b;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator<<=(objective<type> b)
-{
-    data <<= b.data;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator>>=(type b)
-{
-    data <<= b;
-    return *this;
-}
-
-template <typename type>
-objective<type> &objective<type>::operator>>=(objective<type> b)
-{
-    data <<= b.data;
-    return *this;
-}
-
-template <typename type>
-bool objective<type>::operator<(type b)
-{
-    return (data < b);
-}
-
-template <typename type>
-bool objective<type>::operator<(objective<type> b)
-{
-    return (data < b.data);
-}
-
-template <typename type>
-bool objective<type>::operator>(type b)
-{
-    return (data > b);
-}
-
-template <typename type>
-bool objective<type>::operator>(objective<type> b)
-{
-    return (data > b.data);
-}
-
-template <typename type>
-bool objective<type>::operator==(type b)
-{
-    return (data == b);
-}
-
-template <typename type>
-bool objective<type>::operator==(objective<type> b)
-{
-    return (data == b.data);
-}
-
-template <typename type>
-bool objective<type>::operator<=(type b)
-{
-    return (data <= b);
-}
-
-template <typename type>
-bool objective<type>::operator<=(objective<type> b)
-{
-    return (data <= b.data);
-}
-
-template <typename type>
-bool objective<type>::operator>=(type b)
-{
-    return (data >= b);
-}
-
-template <typename type>
-bool objective<type>::operator>=(objective<type> b)
-{
-    return (data >= b.data);
-}
-
-template <typename type>
-bool objective<type>::operator!=(type b)
-{
-    return (data != b);
-}
-
-template <typename type>
-bool objective<type>::operator!=(objective<type> b)
-{
-    return (data != b.data);
-}
-
-template <typename type>
-objective<type>::operator type()
-{
-    return data;
-}
-
-template <typename target, typename source>
-objective<target> objective_cast(objective<source> src)
-{
-    return objective<target>((target)((source)src));
-}
-
-template <typename target, typename source>
-target primitive_cast(objective<source> src)
-{
-    return (target)((source)src);
-}
+        objective<type>& operator/=(type b);
+        objective<type>& operator/=(objective<type> b);
+
+        objective<type>& operator%=(type b);
+        objective<type>& operator%=(objective<type> b);
+
+        objective<type>& operator^=(type b);
+        objective<type>& operator^=(objective<type> b);
+
+        objective<type>& operator|=(type b);
+        objective<type>& operator|=(objective<type> b);
+
+        objective<type>& operator&=(type b);
+        objective<type>& operator&=(objective<type> b);
+
+        objective<type>& operator<<=(type b);
+        objective<type>& operator<<=(objective<type> b);
+
+        objective<type>& operator>>=(type b);
+        objective<type>& operator>>=(objective<type> b);    
+
+        //comparison
+
+        bool operator<(type b);
+        bool operator<(objective<type> b);
+
+        bool operator>(type b);
+        bool operator>(objective<type> b);
+
+        bool operator==(type b);
+        bool operator==(objective<type> b);
+
+        bool operator<=(type b);
+        bool operator<=(objective<type> b);
+
+        bool operator>=(type b);
+        bool operator>=(objective<type> b);
+
+        bool operator!=(type b);
+        bool operator!=(objective<type> b);
+    protected:
+        type data = {};
+    };
+
+    template<>
+    class objective<bool>
+    {
+    public:
+        //construction
+
+        objective(bool a);
+        objective<bool>& operator=(bool a);
+        operator bool();
+
+        //monooperations
+
+        objective<bool>& operator!();
+
+        //operations
+
+        bool operator^(bool b);
+        bool operator^(objective<bool> b);
+
+        bool operator|(bool b);
+        bool operator|(objective<bool> b);
+
+        bool operator&(bool b);
+        bool operator&(objective<bool> b);
+
+        bool operator||(bool b);
+        bool operator||(objective<bool> b);
+
+        bool operator&&(bool b);
+        bool operator&&(objective<bool> b);
+
+        //comparison
+
+        bool operator==(bool b);
+        bool operator==(objective<bool> b);
+
+        bool operator!=(bool b);
+        bool operator!=(objective<bool> b);
+    protected:
+        bool data = false;
+    };
+
+    objective<bool>::objective(bool a) : data(a)
+    {
+    }
+
+    objective<bool> &objective<bool>::operator=(bool a)
+    {
+        data = a;
+        return *this;
+    }
+
+    objective<bool>::operator bool()
+    {
+        return data;
+    }
+
+    bool objective<bool>::operator^(bool b)
+    {
+        return (data ? (!b) : b);
+    }
+
+    bool objective<bool>::operator^(objective<bool> b)
+    {
+        return (data ? (!b.data) : b.data);
+    }
+
+    bool objective<bool>::operator|(bool b)
+    {
+        return (data || b);
+    }
+
+    bool objective<bool>::operator|(objective<bool> b)
+    {
+        return (data || b.data);
+    }
+
+    bool objective<bool>::operator&(bool b)
+    {
+        return (data && b);
+    }
+
+    bool objective<bool>::operator&(objective<bool> b)
+    {
+        return (data && b.data);
+    }
+
+    bool objective<bool>::operator||(bool b)
+    {
+        return (data || b);
+    }
+
+    bool objective<bool>::operator||(objective<bool> b)
+    {
+        return (data || b.data);
+    }
+
+    bool objective<bool>::operator&&(bool b)
+    {
+        return (data && b);
+    }
+
+    bool objective<bool>::operator&&(objective<bool> b)
+    {
+        return (data && b.data);
+    }
+
+    bool objective<bool>::operator==(bool b)
+    {
+        return (data == b);
+    }
+
+    bool objective<bool>::operator==(objective<bool> b)
+    {
+        return (data == b.data);
+    }
+
+    bool objective<bool>::operator!=(bool b)
+    {
+        return (data != b);
+    }
+
+    bool objective<bool>::operator!=(objective<bool> b)
+    {
+        return (data != b.data);
+    }
+
+
+
+
+    template<typename type>
+    objective<type>::objective(type a) : data(a)
+    {
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator=(type a)
+    {
+        data = a;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator++()
+    {
+        data++;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator--()
+    {
+        data--;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator+()
+    {
+        data = +data;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator-()
+    {
+        data = -data;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator!()
+    {
+        data = !data;
+        return *this;
+    }
+
+    template <typename type>
+    type objective<type>::operator+(type b)
+    {
+        return data + b;
+    }
+
+    template <typename type>
+    type objective<type>::operator+(objective<type> b)
+    {
+        return data + b.data;
+    }
+
+    template <typename type>
+    type objective<type>::operator-(type b)
+    {
+        return data - b;
+    }
+
+    template <typename type>
+    type objective<type>::operator-(objective<type> b)
+    {
+        return data - b.data;
+    }
+
+    template <typename type>
+    type objective<type>::operator*(type b)
+    {
+        return data * b;
+    }
+
+    template <typename type>
+    type objective<type>::operator*(objective<type> b)
+    {
+        return data * b.data;
+    }
+
+    template <typename type>
+    type objective<type>::operator/(type b)
+    {
+        return data / b;
+    }
+
+    template <typename type>
+    type objective<type>::operator/(objective<type> b)
+    {
+        return data / b.data;
+    }
+
+    template <typename type>
+    type objective<type>::operator%(type b)
+    {
+        return data % b;
+    }
+
+    template <typename type>
+    type objective<type>::operator%(objective<type> b)
+    {
+        return data % b.data;
+    }
+
+    template <typename type>
+    type objective<type>::operator^(type b)
+    {
+        return data ^ b;
+    }
+
+    template <typename type>
+    type objective<type>::operator^(objective<type> b)
+    {
+        return data ^ b.data;
+    }
+
+    template <typename type>
+    type objective<type>::operator|(type b)
+    {
+        return data | b;
+    }
+
+    template <typename type>
+    type objective<type>::operator|(objective<type> b)
+    {
+        return data | b.data;
+    }
+
+    template <typename type>
+    type objective<type>::operator&(type b)
+    {
+        return data & b;
+    }
+
+    template <typename type>
+    type objective<type>::operator&(objective<type> b)
+    {
+        return data & b.data;
+    }
+
+    template <typename type>
+    type objective<type>::operator<<(type b)
+    {
+        return data << b;
+    }
+
+    template <typename type>
+    type objective<type>::operator<<(objective<type> b)
+    {
+        return data << b.data;
+    }
+
+    template <typename type>
+    type objective<type>::operator>>(type b)
+    {
+        return data >> b;
+    }
+
+    template <typename type>
+    type objective<type>::operator>>(objective<type> b)
+    {
+        return data >> b.data;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator+=(type b)
+    {
+        data += b;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator+=(objective<type> b)
+    {
+        data += b.data;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator-=(type b)
+    {
+        data -= b;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator-=(objective<type> b)
+    {
+        data -= b.data;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator*=(type b)
+    {
+        data *= b;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator*=(objective<type> b)
+    {
+        data *= b.data;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator/=(type b)
+    {
+        data /= b;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator/=(objective<type> b)
+    {
+        data /= b.data;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator%=(type b)
+    {
+        data %= b;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator%=(objective<type> b)
+    {
+        data %= b.data;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator^=(type b)
+    {
+        data ^= b;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator^=(objective<type> b)
+    {
+        data ^= b.data;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator|=(type b)
+    {
+        data |= b;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator|=(objective<type> b)
+    {
+        data |= b.data;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator&=(type b)
+    {
+        data &= b;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator&=(objective<type> b)
+    {
+        data &= b.data;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator<<=(type b)
+    {
+        data <<= b;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator<<=(objective<type> b)
+    {
+        data <<= b.data;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator>>=(type b)
+    {
+        data <<= b;
+        return *this;
+    }
+
+    template <typename type>
+    objective<type> &objective<type>::operator>>=(objective<type> b)
+    {
+        data <<= b.data;
+        return *this;
+    }
+
+    template <typename type>
+    bool objective<type>::operator<(type b)
+    {
+        return (data < b);
+    }
+
+    template <typename type>
+    bool objective<type>::operator<(objective<type> b)
+    {
+        return (data < b.data);
+    }
+
+    template <typename type>
+    bool objective<type>::operator>(type b)
+    {
+        return (data > b);
+    }
+
+    template <typename type>
+    bool objective<type>::operator>(objective<type> b)
+    {
+        return (data > b.data);
+    }
+
+    template <typename type>
+    bool objective<type>::operator==(type b)
+    {
+        return (data == b);
+    }
+
+    template <typename type>
+    bool objective<type>::operator==(objective<type> b)
+    {
+        return (data == b.data);
+    }
+
+    template <typename type>
+    bool objective<type>::operator<=(type b)
+    {
+        return (data <= b);
+    }
+
+    template <typename type>
+    bool objective<type>::operator<=(objective<type> b)
+    {
+        return (data <= b.data);
+    }
+
+    template <typename type>
+    bool objective<type>::operator>=(type b)
+    {
+        return (data >= b);
+    }
+
+    template <typename type>
+    bool objective<type>::operator>=(objective<type> b)
+    {
+        return (data >= b.data);
+    }
+
+    template <typename type>
+    bool objective<type>::operator!=(type b)
+    {
+        return (data != b);
+    }
+
+    template <typename type>
+    bool objective<type>::operator!=(objective<type> b)
+    {
+        return (data != b.data);
+    }
+
+    template <typename type>
+    objective<type>::operator type()
+    {
+        return data;
+    }
+
+    template <typename target, typename source>
+    objective<target> objective_cast(objective<source> src)
+    {
+        return objective<target>((target)((source)src));
+    }
+
+    template <typename target, typename source>
+    target primitive_cast(objective<source> src)
+    {
+        return (target)((source)src);
+    }
+} //namespace minilibs
 #endif //!_OBJECTIVE_

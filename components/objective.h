@@ -13,150 +13,153 @@
 #pragma once
 #ifndef _OBJECTIVE_
 #define _OBJECTIVE_
-template <typename type>
-class objective
+namespace minilibs
 {
-public:
-	//construction
+	template <typename type>
+	class objective
+	{
+	public:
+		//construction
 
-	objective(type a);
-	objective<type>& operator=(type a);
-	operator type();
+		objective(type a);
+		objective<type>& operator=(type a);
+		operator type();
 
-	//monooperations
+		//monooperations
 
-	objective<type>& operator++();
-	objective<type>& operator--();
-	objective<type>& operator+();
-	objective<type>& operator-();
-	objective<type>& operator!();
+		objective<type>& operator++();
+		objective<type>& operator--();
+		objective<type>& operator+();
+		objective<type>& operator-();
+		objective<type>& operator!();
 
-	//operations
+		//operations
 
-	type operator+(type b);
-	type operator+(objective<type> b);
+		type operator+(type b);
+		type operator+(objective<type> b);
 
-	type operator-(type b);
-	type operator-(objective<type> b);
+		type operator-(type b);
+		type operator-(objective<type> b);
 
-	type operator*(type b);
-	type operator*(objective<type> b);
+		type operator*(type b);
+		type operator*(objective<type> b);
 
-	type operator/(type b);
-	type operator/(objective<type> b);
+		type operator/(type b);
+		type operator/(objective<type> b);
 
-	type operator%(type b);
-	type operator%(objective<type> b);
+		type operator%(type b);
+		type operator%(objective<type> b);
 
-	type operator^(type b);
-	type operator^(objective<type> b);
+		type operator^(type b);
+		type operator^(objective<type> b);
 
-	type operator|(type b);
-	type operator|(objective<type> b);
+		type operator|(type b);
+		type operator|(objective<type> b);
 
-	type operator&(type b);
-	type operator&(objective<type> b);
-	
-	type operator<<(type b);
-	type operator<<(objective<type> b);
+		type operator&(type b);
+		type operator&(objective<type> b);
 
-	type operator>>(type b);
-	type operator>>(objective<type> b);
-	
-	//assignment operations
+		type operator<<(type b);
+		type operator<<(objective<type> b);
 
-	objective<type>& operator+=(type b);
-	objective<type>& operator+=(objective<type> b);
+		type operator>>(type b);
+		type operator>>(objective<type> b);
 
-	objective<type>& operator-=(type b);
-	objective<type>& operator-=(objective<type> b);
+		//assignment operations
 
-	objective<type>& operator*=(type b);
-	objective<type>& operator*=(objective<type> b);
+		objective<type>& operator+=(type b);
+		objective<type>& operator+=(objective<type> b);
 
-	objective<type>& operator/=(type b);
-	objective<type>& operator/=(objective<type> b);
+		objective<type>& operator-=(type b);
+		objective<type>& operator-=(objective<type> b);
 
-	objective<type>& operator%=(type b);
-	objective<type>& operator%=(objective<type> b);
+		objective<type>& operator*=(type b);
+		objective<type>& operator*=(objective<type> b);
 
-	objective<type>& operator^=(type b);
-	objective<type>& operator^=(objective<type> b);
+		objective<type>& operator/=(type b);
+		objective<type>& operator/=(objective<type> b);
 
-	objective<type>& operator|=(type b);
-	objective<type>& operator|=(objective<type> b);
+		objective<type>& operator%=(type b);
+		objective<type>& operator%=(objective<type> b);
 
-	objective<type>& operator&=(type b);
-	objective<type>& operator&=(objective<type> b);
-	
-	objective<type>& operator<<=(type b);
-	objective<type>& operator<<=(objective<type> b);
+		objective<type>& operator^=(type b);
+		objective<type>& operator^=(objective<type> b);
 
-	objective<type>& operator>>=(type b);
-	objective<type>& operator>>=(objective<type> b);    
-	
-	//comparison
-	
-	bool operator<(type b);
-	bool operator<(objective<type> b);
-	
-	bool operator>(type b);
-	bool operator>(objective<type> b);
-	
-	bool operator==(type b);
-	bool operator==(objective<type> b);
-	
-	bool operator<=(type b);
-	bool operator<=(objective<type> b);
-	
-	bool operator>=(type b);
-	bool operator>=(objective<type> b);
-	
-	bool operator!=(type b);
-	bool operator!=(objective<type> b);
-protected:
-	type data = {};
-};
+		objective<type>& operator|=(type b);
+		objective<type>& operator|=(objective<type> b);
 
-template<>
-class objective<bool>
-{
-public:
-	//construction
+		objective<type>& operator&=(type b);
+		objective<type>& operator&=(objective<type> b);
 
-	objective(bool a);
-	objective<bool>& operator=(bool a);
-	operator bool();
+		objective<type>& operator<<=(type b);
+		objective<type>& operator<<=(objective<type> b);
 
-	//monooperations
+		objective<type>& operator>>=(type b);
+		objective<type>& operator>>=(objective<type> b);    
 
-	objective<bool>& operator!();
+		//comparison
 
-	//operations
+		bool operator<(type b);
+		bool operator<(objective<type> b);
 
-	bool operator^(bool b);
-	bool operator^(objective<bool> b);
+		bool operator>(type b);
+		bool operator>(objective<type> b);
 
-	bool operator|(bool b);
-	bool operator|(objective<bool> b);
+		bool operator==(type b);
+		bool operator==(objective<type> b);
 
-	bool operator&(bool b);
-	bool operator&(objective<bool> b);
-	
-	bool operator||(bool b);
-	bool operator||(objective<bool> b);
+		bool operator<=(type b);
+		bool operator<=(objective<type> b);
 
-	bool operator&&(bool b);
-	bool operator&&(objective<bool> b);
-	
-	//comparison
-	
-	bool operator==(bool b);
-	bool operator==(objective<bool> b);
-	
-	bool operator!=(bool b);
-	bool operator!=(objective<bool> b);
-protected:
-	bool data = false;
-};
+		bool operator>=(type b);
+		bool operator>=(objective<type> b);
+
+		bool operator!=(type b);
+		bool operator!=(objective<type> b);
+	protected:
+		type data = {};
+	};
+
+	template<>
+	class objective<bool>
+	{
+	public:
+		//construction
+
+		objective(bool a);
+		objective<bool>& operator=(bool a);
+		operator bool();
+
+		//monooperations
+
+		objective<bool>& operator!();
+
+		//operations
+
+		bool operator^(bool b);
+		bool operator^(objective<bool> b);
+
+		bool operator|(bool b);
+		bool operator|(objective<bool> b);
+
+		bool operator&(bool b);
+		bool operator&(objective<bool> b);
+
+		bool operator||(bool b);
+		bool operator||(objective<bool> b);
+
+		bool operator&&(bool b);
+		bool operator&&(objective<bool> b);
+
+		//comparison
+
+		bool operator==(bool b);
+		bool operator==(objective<bool> b);
+
+		bool operator!=(bool b);
+		bool operator!=(objective<bool> b);
+	protected:
+		bool data = false;
+	};
+} //namespace minilibs
 #endif
