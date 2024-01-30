@@ -26,6 +26,7 @@ using namespace std;
 
 int main()
 {
+    //creates two objects of type quaternion<int>
     quaternion a, b;
     cout << "Quaternion 1: " << endl;
     cout << "e-part: "; cin >> a[e];
@@ -39,12 +40,25 @@ int main()
     cout << "j-part: "; cin >> b[j];
     cout << "k-part: "; cin >> b[k];
 
+    // Real part selection
     cout << "norm^2 of a = " << (*a * a)[e] << endl;
+
+    // Reciprocal
     cout << " a^-1 = " << a.reciprocal() << endl;
+
+    // Norm
     cout << "norm of a = " << a.norm() << endl;//(int)sqrt((*a * a)[e]) << endl;
+
+    // Addition
     cout << '(' << a << ") + (" << b << ") = " << (a + b) << endl;
+
+    // Substraction
     cout << '(' << a << ") - (" << b << ") = " << (a - b) << endl;
+    
+    // Mulitplication
     cout << '(' << a << ") * (" << b << ") = " << (a * b) << endl;
+
+    // Division
     cout << '(' << b << ") / (" << a << ") = " << quaternion_cast<int>(b / a) << endl;
     cout << quaternion<int>(0, 1, 1, 1);
 }
