@@ -21,6 +21,8 @@
 #include "fraction"
 
 using namespace std;
+using namespace minilibs;
+
 int main()
 {
     int A = 1, B = 1;
