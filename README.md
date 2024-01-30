@@ -16,11 +16,6 @@
 | :---: | :-- |
 | `rational_cast<target>` | Converts from `fraction<source>` to `fraction<target>`, where `source` type is detected implicitly. |
 
-#include <iostream>
-#include "fraction_.h"
-
-using namespace std;
-
 ```cpp
 #include <iostream>
 #include "fraction"
@@ -40,10 +35,19 @@ int main()
     cout << "Denominator 2: ";
     cin >> B;
     fraction right(A, B);
+    // Addition
     cout << left << " + " << right << " = " << (left+right) << endl;
+
+    // Substraction
     cout << left << " - " << right << " = " << (left-right) << endl;
+
+    // Multiplication
     cout << left << " * " << right << " = " << (left*right) << endl;
+
+    // Division
     cout << left << " / " << right << " = " << (left/right) << endl;
+
+    // Square (exponentiation)
     cout << '(' << left << ") ^ 2 = "       << pow(left, 2) << endl;
 }
 ```
