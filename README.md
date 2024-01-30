@@ -35,6 +35,7 @@ int main()
     cout << "Denominator 2: ";
     cin >> B;
     fraction right(A, B);
+
     // Addition
     cout << left << " + " << right << " = " << (left+right) << endl;
 
