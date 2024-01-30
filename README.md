@@ -1,13 +1,21 @@
-# `<objective>` header
+# minilibs
+MiniLibs - collection of C++20 headers
 
-`<objective>` contains a class, which aim is to help to handle types as classes.
+> WARNING: most libraries are not back-compatible. See READMEs of specific headers for more information.
 
-## Classes
-| Class | Description |
-| :---: | :-- |
-| `objective<type>` | Wraps primitive types to be handled as classes. |
-## Casting Operators
-| Operator | Description |
-| :---: | :-- |
-| `objective_cast<target>` | Converts from `objective<source>` to `objective<target>`, where `source` type is detected implicitly. |
-| `primitive_cast<target>` | Converts `objective<source>` object to primitive type `target`. `source` is detected implicitly. |
+## Existing headers
+* [`<objective>`](https://github.com/Cantro93/minilibs/tree/lib-objective) - alternative ways of types handling;
+* [`<hook>`](https://github.com/Cantro93/minilibs/tree/lib-hook) - event handling for C++;
+* [`<fraction>`](https://github.com/Cantro93/minilibs/tree/lib-fraction) - rational numbers;
+* [`<quaternion>`](https://github.com/Cantro93/minilibs/tree/lib-quaternion) - quaternions;
+* [`<type>`](https://github.com/Cantro93/minilibs/tree/lib-type) - metaprogramming tools;
+
+> NOTE: click the header's name to go to the branch representing it.
+
+## Licensing
+Project is licensed under GNU General Public License (Version 3).
+The license file is located here:<br>[LICENSE](LICENSE)
+
+## Usage:
+See [samples](https://github.com/Cantro93/minilibs/tree/samples).
+
