@@ -23,6 +23,7 @@
 #include "quaternion.h"
 
 using namespace std;
+using namespace minilibs;
 
 int main()
 {
