@@ -19,6 +19,7 @@
 #include "hook.h"
 
 using namespace std;
+using namespace minilibs;
 
 class A {
 public:
